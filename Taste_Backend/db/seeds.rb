@@ -126,7 +126,7 @@ Recipe.create(
 
 10.times do
     rating = Rating.new
-    rating.number = (0..5).to_a.sample
+    rating.number = (1..6).to_a.sample
     rating.user = User.all.sample
     rating.recipe = Recipe.all.sample
     rating.save
