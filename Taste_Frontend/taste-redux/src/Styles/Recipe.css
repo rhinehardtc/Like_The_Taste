@@ -1,0 +1,18 @@
+.recipe_div {
+    margin-top: 50px
+}
+
+/* .details {
+    display: none;
+} */
+
+.recipe_img {
+    width: 30%;
+    height: 20%; 
+    border: 1px solid burlywood
+}
+
+.recipe_img:hover {
+    width: 60%;
+    height: 30%;
+}
