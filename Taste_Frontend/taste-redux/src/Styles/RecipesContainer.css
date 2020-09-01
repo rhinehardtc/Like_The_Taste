@@ -2,3 +2,11 @@
     padding: 10px;
     background-color: orchid;
 }
+
+.container_div {
+    margin-top: 50px;
+    padding: 20px;
+    border: 1px solid burlywood;
+    background-color: #ffdaa371;
+    backdrop-filter: blur(2px);
+}

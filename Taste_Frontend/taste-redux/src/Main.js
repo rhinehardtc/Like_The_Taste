@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './Containers/Header';
+import RecipeDetails from './Components/RecipeDetails';
 import RecipesContainer from './Containers/RecipesContainer'
 
 export default class Main extends React.Component {
@@ -26,11 +27,37 @@ export default class Main extends React.Component {
         this.setState({search: e.target.value.toLowerCase()})
     }
 
+    selectRecipe = (recipe) => {
+        this.setState({selectedRecipe: recipe})
+        this.showRecipeDetails()
+    }
+
+    dontShowRecipe = () => {
+        this.setState({selectedRecipe: null})
+    }
+
+    showRecipeDetails = () => {
+        if(this.state.selectedRecipe){
+          return <RecipeDetails
+                    key={this.state.selectedRecipe.id} 
+                    recipe={this.state.selectedRecipe} 
+                    dontShowRecipe={this.dontShowRecipe} 
+                 />
+        } else {
+          return <RecipesContainer 
+                    recipes={this.state.recipes} 
+                    handleSearch={this.handleSearch} 
+                    search={this.state.search} 
+                    selectRecipe={this.selectRecipe}
+                 />
+        }
+      }
+
     render(){
         return(
             <div>
                 <Header />
-                <RecipesContainer recipes={this.state.recipes} handleSearch={this.handleSearch} search={this.state.search} />
+                {this.showRecipeDetails()}
             </div>
         )
     }

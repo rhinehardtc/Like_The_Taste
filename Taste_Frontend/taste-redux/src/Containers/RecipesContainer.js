@@ -11,14 +11,17 @@ const RecipesContainer = (props) => {
             <div className="filter_div">
                 <Search handleSearch={props.handleSearch} />
             </div>
-            {
-                filteredRecipes.map(recipe => 
-                    <Recipe 
-                        key={recipe.id}
-                        recipe={recipe}
-                    />
-                )
-            }
+            <div className="container_div" >
+                {
+                    filteredRecipes.map(recipe => 
+                        <Recipe 
+                            key={recipe.id}
+                            recipe={recipe}
+                            handleClick={props.selectRecipe}
+                        />
+                    )
+                }
+            </div>
         </div>
     )
 }

@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("https://i.pinimg.com/originals/b0/43/c1/b043c1be7ed0d4f085e356e159250c69.jpg");
+  background-size: 100%;
 }
 
 code {
@@ -15,3 +17,5 @@ code {
 ::-webkit-scrollbar {
   display: none
 }
+
+
