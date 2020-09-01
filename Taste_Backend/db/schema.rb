@@ -12,15 +12,18 @@
 
 ActiveRecord::Schema.define(version: 2020_08_27_222947) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "ingredients", force: :cascade do |t|
-    t.string "name"
+    t.text "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "list_recipes", force: :cascade do |t|
-    t.integer "list_id", null: false
-    t.integer "recipe_id", null: false
+    t.bigint "list_id", null: false
+    t.bigint "recipe_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["list_id"], name: "index_list_recipes_on_list_id"
@@ -28,8 +31,8 @@ ActiveRecord::Schema.define(version: 2020_08_27_222947) do
   end
 
   create_table "lists", force: :cascade do |t|
-    t.string "title"
-    t.integer "user_id", null: false
+    t.text "title"
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_lists_on_user_id"
@@ -37,8 +40,8 @@ ActiveRecord::Schema.define(version: 2020_08_27_222947) do
 
   create_table "ratings", force: :cascade do |t|
     t.integer "number"
-    t.integer "user_id", null: false
-    t.integer "recipe_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "recipe_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["recipe_id"], name: "index_ratings_on_recipe_id"
@@ -46,8 +49,8 @@ ActiveRecord::Schema.define(version: 2020_08_27_222947) do
   end
 
   create_table "recipe_ingredients", force: :cascade do |t|
-    t.integer "recipe_id", null: false
-    t.integer "ingredient_id", null: false
+    t.bigint "recipe_id", null: false
+    t.bigint "ingredient_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["ingredient_id"], name: "index_recipe_ingredients_on_ingredient_id"
@@ -55,8 +58,8 @@ ActiveRecord::Schema.define(version: 2020_08_27_222947) do
   end
 
   create_table "recipe_tags", force: :cascade do |t|
-    t.integer "recipe_id", null: false
-    t.integer "tag_id", null: false
+    t.bigint "recipe_id", null: false
+    t.bigint "tag_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["recipe_id"], name: "index_recipe_tags_on_recipe_id"
@@ -64,17 +67,17 @@ ActiveRecord::Schema.define(version: 2020_08_27_222947) do
   end
 
   create_table "recipes", force: :cascade do |t|
-    t.string "title"
+    t.text "title"
     t.integer "time"
-    t.string "description"
-    t.string "steps"
-    t.string "img_url"
+    t.text "description", array: true
+    t.text "steps", array: true
+    t.text "img_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "tags", force: :cascade do |t|
-    t.string "name"
+    t.text "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
