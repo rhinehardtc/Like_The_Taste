@@ -3,9 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@bit/primefaces.primereact.checkbox": "^4.2.0",
+    "@bit/primefaces.primereact.inputtext": "^4.2.0",
+    "@bit/primefaces.primereact.internal.stylelinks": "^3.1.8",
+    "@bit/primefaces.primereact.multiselect": "^4.2.0",
+    "@bit/primefaces.primereact.tooltip": "^4.2.0",
+    "@bit/primefaces.primereact.utils.dom-handler": "^4.2.0",
+    "@bit/primefaces.primereact.utils.object-utils": "^4.2.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "classnames": "^2.2.6",
+    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3"
@@ -30,5 +39,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "bit": {
+    "env": {
+      "compiler": "bit.envs/compilers/react@1.0.20"
+    },
+    "componentsDefaultDirectory": "components/{name}",
+    "packageManager": "npm"
   }
 }

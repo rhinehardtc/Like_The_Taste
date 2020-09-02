@@ -4,7 +4,7 @@
     padding: 3% 5% 2% 5%;
 
     width: 40%;
-    height: 600px;
+    height: 610px;
     border: 1px solid burlywood;
     background-color: #ffdaa371;
     backdrop-filter: blur(6px);
@@ -17,4 +17,8 @@
     max-height: 30em;
 
     border: 1px solid burlywood;
+}
+
+.recipe_detail_img:hover {
+    box-shadow: 0 0 6px rgba(116, 27, 0, 0.808);
 }

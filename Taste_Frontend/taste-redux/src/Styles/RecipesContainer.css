@@ -1,7 +1,25 @@
 .filter_div {
+    display: flex;
+    flex-flow: row;
+    position: sticky;
+    justify-content: space-around;
+    z-index: 1;
     padding: 10px;
     background-color: rgba(218, 112, 214, 0.685);
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(4px);
+}
+
+.dropdown_div {
+    display: flex;
+    flex-flow: column wrap;
+
+    width: 12%;
+
+    color: white;
+}
+
+.p-multiselect .p-multiselect-label-container {
+    height: 100%;
 }
 
 .container_div {
@@ -10,15 +28,16 @@
     float: right;
     position: relative;
 
-    width: 40%;
-    height: 490px;
+    width: 50%;
+    height: 630px;
 
     align-items: center;
     text-align: center;
 
     overflow: auto;
 
-    padding: 5%;
+    padding-top: 5%;
+    padding-bottom: 5%;
     border: 1px solid burlywood;
     background-color: #ffdaa371;
     backdrop-filter: blur(2px);

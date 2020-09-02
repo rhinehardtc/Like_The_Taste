@@ -1,0 +1,10 @@
+.searchbar_div {
+    display: flex;
+    flex-flow: column wrap;
+
+    justify-content: center;
+}
+
+.searchbar {
+    height:50%
+}
