@@ -29,7 +29,7 @@
     position: relative;
 
     width: 50%;
-    height: 630px;
+    height: 610px;
 
     align-items: center;
     text-align: center;
@@ -41,4 +41,15 @@
     border: 1px solid burlywood;
     background-color: #ffdaa371;
     backdrop-filter: blur(2px);
+}
+
+.search_button {
+    border: none;
+    border-radius: 5px;
+
+    outline: none;
+}
+
+.search_button:hover {
+    box-shadow: 0 0 8px rgb(255, 205, 158);
 }

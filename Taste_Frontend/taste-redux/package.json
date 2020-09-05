@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@bit/joaobelo.ui-components.star-rating": "0.0.7",
     "@bit/primefaces.primereact.checkbox": "^4.2.0",
     "@bit/primefaces.primereact.inputtext": "^4.2.0",
     "@bit/primefaces.primereact.internal.stylelinks": "^3.1.8",
@@ -17,7 +18,8 @@
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "styled-components": "^5.1.1"
   },
   "scripts": {
     "start": "react-scripts start",

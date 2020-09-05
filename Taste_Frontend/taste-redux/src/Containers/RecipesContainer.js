@@ -6,11 +6,25 @@ import Recipe from '../Components/Recipe';
 import Search from '../Components/Search'
 
 const RecipesContainer = (props) => {
+              
     let filteredRecipes = props.recipes.filter(recipe => recipe.title.toLowerCase().includes(props.search))
+
+    const getSearch = () => {
+        fetch("http://localhost:3000/search", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json'
+            },
+            body: JSON.stringify({includedIngredients: props.includedIngredients})
+        })
+        .then(resp => resp.json())
+        .then(json => console.log(json))
+    }
+
     return(
         <div className="recipes_container" >
             {console.log(props.search)}
-            {console.log(props.allIngredients)}
             <div className="filter_div">
                 <Search handleSearch={props.handleSearch} />
                 <PrimereactStyle />
@@ -54,6 +68,7 @@ const RecipesContainer = (props) => {
                         filter={true}
                     />
                 </div>
+                <button className="search_button" onClick={getSearch} >Search</button>
             </div>
             <div className="container_div" >
                 {

@@ -1,0 +1,44 @@
+.login_header {
+    padding: 1% 5% 1% 5%;
+
+    width: 100%;
+    
+    background-color: rgba(218, 112, 214, 0.685);
+    backdrop-filter: blur(4px);
+
+    color: white;
+}
+
+.login_div {
+    display: flex;
+    flex-flow: column wrap;
+
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 2%;
+    width: 100%;
+    height: 24em;
+
+    padding-top: 5%;
+    padding-bottom: 5%;
+    border: 1px solid burlywood;
+    background-color: #ffdaa371;
+    backdrop-filter: blur(2px);
+}
+
+.back_button {
+    width: 30%;
+    height: 10%;
+
+    margin-top: 10%;
+
+    border: none;
+    border-radius: 5px;
+
+    outline: none;
+}
+
+.back_button:hover {
+    box-shadow: 0 0 8px rgba(218, 112, 214);
+}

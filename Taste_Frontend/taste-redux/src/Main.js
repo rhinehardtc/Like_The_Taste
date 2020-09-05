@@ -46,7 +46,7 @@ export default class Main extends React.Component {
 
     convertIngredients = (arr) => {
         const allIngredients = [];
-        arr.map(ing => allIngredients.push({label: ing.name, value: ing.name}))
+        arr.map(ing => allIngredients.push({label: ing.name, value: ing.id}))
         this.setState({allIngredients})
     }
 
@@ -95,7 +95,7 @@ export default class Main extends React.Component {
                     selectRecipe={this.selectRecipe}
                  />
         }
-      }
+    }
 
     render(){
         return(

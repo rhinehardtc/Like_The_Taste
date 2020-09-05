@@ -22,7 +22,9 @@
 .recipe_img {
     width: 90%;
     height: fit-content; 
-    border: 1px solid burlywood
+    border: 1px solid burlywood;
+
+    cursor: pointer;
 }
 
 .recipe_img:hover {
