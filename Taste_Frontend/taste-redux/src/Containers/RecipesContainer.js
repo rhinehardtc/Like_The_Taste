@@ -16,7 +16,7 @@ const RecipesContainer = (props) => {
                 'Content-Type': 'application/json',
                 Accept: 'application/json'
             },
-            body: JSON.stringify({includedIngredients: props.includedIngredients})
+            body: JSON.stringify({query: {includedIngredients: props.includedIngredients}})
         })
         .then(resp => resp.json())
         .then(json => console.log(json))

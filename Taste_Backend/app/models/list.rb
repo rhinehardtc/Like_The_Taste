@@ -3,4 +3,6 @@ class List < ApplicationRecord
 
   has_many :list_recipes, :dependent => :destroy
   has_many :recipes, through: :list_recipes
+
+  validates :user, presence: true
 end
