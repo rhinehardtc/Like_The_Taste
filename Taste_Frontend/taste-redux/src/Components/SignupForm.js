@@ -57,9 +57,8 @@ const SignupForm = (props) => {
                     />
                     
                     <button className="submit_button" type="submit">Create User</button>
-                    
+                    <button className="back_button" onClick={() => props.stateSetter({signupClick: null})}>Go Back</button>
                 </form>
-                <button className="back_button" onClick={() => props.stateSetter({signupClick: null})}>Go Back</button>
             </div>
         </>
     )

@@ -24,6 +24,15 @@ export default class Main extends React.Component {
         this.getRecipes()
         this.getIngredients()
         this.getTags()
+        this.getSession()
+    }
+
+    getSession = () => {
+        fetch('http://localhost:3000/check-login', {
+            credentials: 'include'
+        })
+        .then(response => response.json())
+        .then(json => console.log(json))
     }
 
     getRecipes = () => {

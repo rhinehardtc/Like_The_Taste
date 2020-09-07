@@ -26,11 +26,11 @@ const RecipeDetails = (props) => {
             <img className="recipe_detail_img" src={img_url} alt={title} onClick={() => props.dontShowRecipe()} />
             <div className="details" >
                 <h2>Cooktime: {time} minutes</h2>
-                <div>
+                <div className="description_div" >
                     <h3>Description</h3>
                     {description.map(desc => <p>{desc}</p>)}
                 </div>
-                <div>
+                <div className="ingredients_div" >
                     <h3>Instructions</h3>
                     {steps.map(step => <p>{step}</p>)}
                 </div>

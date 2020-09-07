@@ -30,3 +30,7 @@
 .recipe_detail_img:hover {
     box-shadow: 0 0 6px rgba(116, 27, 0, 0.808);
 }
+
+.details {
+    width: 80%
+}

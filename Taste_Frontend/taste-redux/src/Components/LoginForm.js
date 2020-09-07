@@ -4,7 +4,24 @@ import '../Styles/LoginForm.css';
 const LoginForm = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(e.target.username.value, e.target.password.value)
+
+        fetch("http://localhost:3000/login", {
+            credentials: "include",
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json'
+            },
+            body: JSON.stringify({
+                username: e.target.username.value,
+                password: e.target.password.value
+            })
+        })
+        .then(res => res.json())
+        .then(json => {
+                        console.log(json)
+                    }
+            )
     }
 
     return(
@@ -30,9 +47,8 @@ const LoginForm = (props) => {
                     />
                         
                     <button className="submit_button" type="submit">Login</button>
-                        
+                    <button className="back_button" onClick={() => props.stateSetter({loginClick: null})}>Go Back</button>
                 </form>
-                <button className="back_button" onClick={() => props.stateSetter({loginClick: null})}>Go Back</button>
             </div>
         </>
     )

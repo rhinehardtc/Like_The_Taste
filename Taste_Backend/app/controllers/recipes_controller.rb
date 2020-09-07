@@ -1,5 +1,4 @@
 class RecipesController < ApplicationController
-    skip_before_action :verify_authenticity_token
     
     def index
         recipes = Recipe.all
@@ -14,7 +13,11 @@ class RecipesController < ApplicationController
     end
 
     def search
-        recipes = Recipe.joins(ingredients: [:ingredients]).where("ingredients.id" => params[:query[:includedIngredients]])
+        recipes = Recipe.all
+        
+        i_i = params[:query[:includedIngredients]]
+
+        recipes.includes(:ingredients).select{|recipe| recipe.ingredients.select{|ingredient| i_i.include?(ingredient.id) }.length == i_i.length}
 
         render json: recipes, :include => [:ratings, :ingredients, :tags]
     end
