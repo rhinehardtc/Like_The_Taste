@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
     def index
         users = User.all
         render json: users, :include => [:ratings, :lists]
@@ -12,8 +13,18 @@ class UsersController < ApplicationController
     end
 
     def create
-        user = User.create({username: params[:username], password: params[:password]})
-            session[:user_id] = user.id
+        user = User.new({username: params[:username], password: params[:password], password_confirmation: params[:password_confirmation]})
+            
+        if user.valid?
+            user.save
             render json: user
+        else
+            render json: { message: user.errors.messages }
+        end
     end
+
+    private
+        def user_params
+            params.require(:username, :password, :password_confirmation).permit!
+        end
 end

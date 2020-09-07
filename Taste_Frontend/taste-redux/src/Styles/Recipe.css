@@ -1,19 +1,35 @@
 .recipe_div {
-    margin-top: 50px;
-    padding: 20px;
-    width: 30%;
+    display: flex;
+    flex-flow: column;
+    position: relative;
+
+
+    align-content: center;
+    justify-content: center;
+
+    align-items: center;
+    text-align: center;
+    padding: 10%;
+    width: 40%;
+    max-height: 16em;
+
+    margin-bottom: 5%;
     border: 1px solid burlywood;
     background-color: #ffdaa371;
     backdrop-filter: blur(6px);
 }
 
 .recipe_img {
-    width: 15%;
-    height: 10%; 
-    border: 1px solid burlywood
+    width: 90%;
+    height: fit-content; 
+    border: 1px solid burlywood;
+
+    cursor: pointer;
 }
 
 .recipe_img:hover {
-    width: 30%;
-    height: 20%;
+    width: 100%;
+    height: fit-content;
+
+    box-shadow: 0 0 6px rgba(116, 27, 0, 0.808);
 }
