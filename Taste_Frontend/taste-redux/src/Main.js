@@ -16,7 +16,8 @@ export default class Main extends React.Component {
             includedIngredients: [],
             excludedIngredients: [],
             includedTags: [],
-            excludedTags: []
+            excludedTags: [],
+            currentUser: null
         }
     }
 
@@ -32,7 +33,16 @@ export default class Main extends React.Component {
             credentials: 'include'
         })
         .then(response => response.json())
-        .then(json => console.log(json))
+        .then(currentUser => {
+            if(!currentUser.message){
+                this.setState({currentUser})
+                console.log(`logged in as ${currentUser.username}`, 
+                            `Lists: ${currentUser.lists[0]}`, 
+                            `Ratings: ${currentUser.ratings}`)
+            } else {
+                console.log(currentUser.message)}
+            }
+        )
     }
 
     getRecipes = () => {
@@ -88,6 +98,7 @@ export default class Main extends React.Component {
                     key={this.state.selectedRecipe.id} 
                     recipe={this.state.selectedRecipe} 
                     dontShowRecipe={this.dontShowRecipe} 
+                    currentUser={this.state.currentUser}
                  />
         } else {
           return <RecipesContainer 
@@ -102,6 +113,7 @@ export default class Main extends React.Component {
                     search={this.state.search} 
                     stateSetter={this.stateSetter}
                     selectRecipe={this.selectRecipe}
+                    currentUser={this.state.currentUser}
                  />
         }
     }
@@ -111,7 +123,7 @@ export default class Main extends React.Component {
             <div>
                 <Header />
                 {this.showRecipeDetails()}
-                <User />
+                <User currentUser={this.state.currentUser} stateSetter={this.stateSetter} />
             </div>
         )
     }

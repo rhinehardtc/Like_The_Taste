@@ -18,8 +18,8 @@ const LoginForm = (props) => {
             })
         })
         .then(res => res.json())
-        .then(json => {
-                        console.log(json)
+        .then(currentUser => {
+                        props.stateSetter({currentUser})
                     }
             )
     }
@@ -47,7 +47,7 @@ const LoginForm = (props) => {
                     />
                         
                     <button className="submit_button" type="submit">Login</button>
-                    <button className="back_button" onClick={() => props.stateSetter({loginClick: null})}>Go Back</button>
+                    <button className="back_button" onClick={() => props.clickSetter({loginClick: null})}>Go Back</button>
                 </form>
             </div>
         </>

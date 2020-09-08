@@ -3,6 +3,7 @@ import LoginForm from '../Components/LoginForm';
 import SignupForm from '../Components/SignupForm';
 import UserOptions from '../Components/UserOptions';
 import SignupConfirm from '../Components/SignupConfirm';
+import UserPage from '../Components/UserPage';
 import '../Styles/User.css';
 
 export default class User extends React.Component {
@@ -18,10 +19,12 @@ export default class User extends React.Component {
     }
 
     manageLogin = () => {
-        if(this.state.signupClick){
+        if(this.props.currentUser){
+            return <UserPage stateSetter={this.props.stateSetter} currentUser={this.props.currentUser} />
+        } else if(this.state.signupClick){
             return <SignupForm stateSetter={this.stateSetter} />
         } else if(this.state.loginClick) {
-            return <LoginForm stateSetter={this.stateSetter} />
+            return <LoginForm stateSetter={this.props.stateSetter} clickSetter={this.stateSetter} />
         } else if(this.state.signedUp) {
             return <SignupConfirm stateSetter={this.stateSetter} name={this.state.signedUp} />
         } else {

@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
         user = User.find_by(username: params[:username])
         if user && user.authenticate(params[:password])
             session[:user_id] = user.id
-            render json: user
+            render json: user, :include => [:ratings, :lists]
         else
             render json: {message: "Invalid Login"}
         end
@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
     def check_login
         if session[:user_id]
             user = User.find(session[:user_id])
-            render json: user
+            render json: user, :include => [:ratings, :lists]
         else
             render json: {message: "Login session ended"}
         end

@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.destroy_all
+# User.destroy_all
 Tag.destroy_all
 RecipeTag.destroy_all
 RecipeIngredient.destroy_all
@@ -15,12 +15,12 @@ ListRecipe.destroy_all
 List.destroy_all
 Ingredient.destroy_all
 
-10.times do 
-    User.create(
-        username: Faker::Name.name,
-        password: "password1"
-    )
-end
+# 10.times do 
+#     User.create(
+#         username: Faker::Name.name,
+#         password_digest: "password1",
+#     )
+# end
 
 Recipe.create(
     title: "Stuffed Bell Peppers",
@@ -254,7 +254,7 @@ Recipe.create(
 
 10.times do
     rating = Rating.new
-    rating.number = (1..6).to_a.sample
+    rating.number = (1..5).to_a.sample
     rating.user = User.all.sample
     rating.recipe = Recipe.all.sample
     rating.save
