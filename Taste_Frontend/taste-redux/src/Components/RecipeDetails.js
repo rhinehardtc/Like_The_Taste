@@ -15,12 +15,16 @@ const RecipeDetails = (props) => {
         average = 0
     }
 
+    const getRating = () => {
+        console.log('hello')
+    }
+
     return(
         <div className="recipe_details_div" >
             {console.table(props.recipe.ingredients)}
             {console.table(props.recipe.tags)}
             {console.log(nums)}
-            <StarRating colorPrimary={'#ffe139'} colorSecondary={'#252b74'} starText={'✮'} rating={average} />
+            <StarRating colorPrimary={'#ffe139'} colorSecondary={'#252b74'} starText={'✮'} rating={average} getRating={getRating} />
             <h4>Click to Rate!</h4>
             <h1 className="recipe_title">{title}</h1>
             <img className="recipe_detail_img" src={img_url} alt={title} onClick={() => props.dontShowRecipe()} />

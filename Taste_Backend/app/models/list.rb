@@ -5,4 +5,5 @@ class List < ApplicationRecord
   has_many :recipes, through: :list_recipes
 
   validates :user, presence: true
+  validates :title, length: { minimum: 3 }
 end

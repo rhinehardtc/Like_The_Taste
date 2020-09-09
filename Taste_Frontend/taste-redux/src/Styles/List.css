@@ -1,0 +1,42 @@
+.list_and_button {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+
+    width: 90%;
+
+    padding: 2%;
+    margin-bottom: 5%;
+
+    border-radius: 5px;
+
+    background-color: rgb(255, 123, 0);
+}
+
+.list {
+    cursor: pointer;
+
+    width: 90%;
+
+    padding: 2%;
+
+    border-radius: 5px;
+
+    background-color: rgba(255, 123, 0, 0.856);
+    backdrop-filter: blur(4px);
+
+    color: white;
+}
+
+.x {
+    float: right;
+    cursor: pointer;
+    height: fit-content;
+    color: white;
+    border: 1px solid rgba(255, 123, 0, 0.856);
+    border-radius: 5px;
+}
+
+.x:hover {
+    border: 1px solid white
+}

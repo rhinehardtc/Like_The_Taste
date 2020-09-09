@@ -19,7 +19,7 @@ const RecipesContainer = (props) => {
             body: JSON.stringify({query: {includedIngredients: props.includedIngredients}})
         })
         .then(resp => resp.json())
-        .then(json => console.log(json))
+        .then(recipes => props.stateSetter({recipes}))
     }
 
     return(
