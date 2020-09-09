@@ -10,7 +10,20 @@ const ListRecipe = (props) => {
         .then(selectedRecipe => props.recipeSetter({selectedRecipe}))
     }
 
+    const findAndDeleteListRecipe = () => {
+        fetch(`http://localhost:3000/list_recipes`)
+        .then(response => response.json())
+        .then(listRecipes => {
+            for(const listRecipe of listRecipes){
+                if(listRecipe.recipe_id === id && listRecipe.list_id === props.list.id){
+                    deleteListRecipe(listRecipe.id)
+                }
+            }
+        })
+    }
+
     const deleteListRecipe = (id) => {
+        console.log(id)
         fetch(`http://localhost:3000/list_recipes/${id}`, {
             method: 'DELETE',
             headers: {
@@ -28,7 +41,7 @@ const ListRecipe = (props) => {
                 {title}
             </div>
             <span className="x" role="img" aria-label="x" onClick={() => {
-                deleteListRecipe(id)
+                findAndDeleteListRecipe()
             }} >✖︎</span>
         </div>
     )

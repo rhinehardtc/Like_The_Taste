@@ -85,8 +85,32 @@ const UserPage = (props) => {
 
     const recipeAdder = () => {
         if(props.selectedRecipe){
-            return <button className="add_to_list_button" >Add Recipe</button>
+            return <button className="add_to_list_button" onClick={() => createListRecipe(props.currentList.id, props.selectedRecipe.id)} >Add Recipe</button>
         }
+    }
+
+    const createListRecipe = (list_id, recipe_id) => {
+        console.log(list_id, recipe_id)
+        fetch(`http://localhost:3000/list_recipes`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json'
+            },
+            body: JSON.stringify({
+                list_id,
+                recipe_id
+            })
+        })
+        .then(response => response.json())
+        .then(listRecipe => {
+            if(!listRecipe.message){
+                props.getSession()
+            } else {
+                alert(listRecipe.message)
+            }
+        })
+        .then(() =>renderList())
     }
 
     const listMapper = (arr) => {
@@ -106,6 +130,7 @@ const UserPage = (props) => {
             <ListRecipe 
                 key={recipe.id} 
                 recipe={recipe} 
+                list={props.currentList}
                 listSetter={props.listSetter} 
                 recipeSetter={props.stateSetter} 
                 getSession={props.getSession}

@@ -12,13 +12,22 @@ class ListRecipesController < ApplicationController
     end
 
     def create
-        list_recipe = ListRecipe.new(list_recipe_params)
-        if list_recipe.valid?
-            list_recipe.save
-            render json: list_recipe
+        if !ListRecipe.find_by(list_id: params[:list_id], recipe_id: params[:recipe_id])
+            list_recipe = ListRecipe.new(list_recipe_params)
+            if list_recipe.valid?
+                list_recipe.save
+                render json: list_recipe
+            end
         else
-            render json: { message: list_recipe.errors.messages }
+            render json: {status: "error", code: 3434, message: 'recipe already exists in current list'}
         end
+    end
+
+    def destroy
+        list_recipe = ListRecipe.find_by(id: params[:id])
+        list_recipe.destroy
+
+        render json: ListRecipe.all
     end
 
     private

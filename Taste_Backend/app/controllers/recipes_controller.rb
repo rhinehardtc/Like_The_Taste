@@ -2,14 +2,14 @@ class RecipesController < ApplicationController
     
     def index
         recipes = Recipe.all
-        render json: recipes, :include => [:ratings, :ingredients, :tags]
+        render json: recipes, :include => [:ratings, :ingredients, :tags, :list_recipes]
     end
 
     def show
         recipe = Recipe.find_by(id: params[:id])
         recipe.save
         
-        render json: recipe, :include => [:ratings, :ingredients, :tags]
+        render json: recipe, :include => [:ratings, :ingredients, :tags, :list_recipes]
     end
 
     def search

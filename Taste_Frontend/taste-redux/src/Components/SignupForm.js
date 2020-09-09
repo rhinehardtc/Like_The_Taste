@@ -24,7 +24,9 @@ const SignupForm = (props) => {
                             props.stateSetter({signupClick: null})
                             props.stateSetter({signedUp: json.username})
                         } else {
-                            console.log(json.message)
+                            for(const message in json.message){
+                                alert(`${message}: ${json.message[message]}`)
+                            }
                         }
                     }
             )

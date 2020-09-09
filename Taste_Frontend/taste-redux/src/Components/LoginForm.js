@@ -19,7 +19,11 @@ const LoginForm = (props) => {
         })
         .then(res => res.json())
         .then(currentUser => {
-                        props.stateSetter({currentUser})
+                        if(!currentUser.message){
+                            props.stateSetter({currentUser})
+                        } else {
+                            alert(currentUser.message)
+                        }
                     }
             )
     }
