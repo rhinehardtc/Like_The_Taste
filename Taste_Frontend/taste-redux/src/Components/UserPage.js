@@ -105,12 +105,17 @@ const UserPage = (props) => {
         .then(response => response.json())
         .then(listRecipe => {
             if(!listRecipe.message){
-                props.getSession()
+                listGetter(list_id)
             } else {
                 alert(listRecipe.message)
             }
         })
-        .then(() =>renderList())
+    }
+
+    const listGetter = (id) => {
+        fetch(`http://localhost:3000/lists/${id}`)
+        .then(response => response.json())
+        .then(currentList => props.listSetter({currentList}))
     }
 
     const listMapper = (arr) => {
@@ -132,6 +137,7 @@ const UserPage = (props) => {
                 recipe={recipe} 
                 list={props.currentList}
                 listSetter={props.listSetter} 
+                listGetter={listGetter}
                 recipeSetter={props.stateSetter} 
                 getSession={props.getSession}
             />

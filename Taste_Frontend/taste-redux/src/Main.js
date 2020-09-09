@@ -17,7 +17,7 @@ export default class Main extends React.Component {
             excludedIngredients: [],
             includedTags: [],
             excludedTags: [],
-            currentUser: null
+            currentUser: null,
         }
     }
 

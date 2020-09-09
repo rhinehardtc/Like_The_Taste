@@ -32,7 +32,7 @@ const ListRecipe = (props) => {
             }
         })
         .then(response => response.json())
-        .then(json => props.getSession())
+        .then(json => props.listGetter(props.list.id))
     }
 
     return(

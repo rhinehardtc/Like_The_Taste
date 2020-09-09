@@ -11,12 +11,16 @@ export default class User extends React.Component {
     constructor(){
         super()
         this.state = {
-            currentList: null
+            currentList: null,
         }
     }
 
     stateSetter = (obj) => {
         this.setState(obj)
+    }
+
+    addRecipeList = () => {
+        this.setState({currentBool: !this.state.currentBool})
     }
 
     manageLogin = () => {
