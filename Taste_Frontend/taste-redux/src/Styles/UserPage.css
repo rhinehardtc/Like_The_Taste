@@ -45,11 +45,45 @@
 .list_container {
     display: flex;
     flex-flow: column nowrap;
+
+    align-items: center;
     
+    padding: 3% 2% 0 2%;
     margin-top: 2%;
+    width: 70%;
     height: 60%;
 
     overflow: scroll;
+
+    background-color: rgba(255, 201, 130, 0.411);
+}
+
+.list_title {
+    position: static;
+
+    min-width: 30%;
+    width: fit-content;
+    height: fit-content;
+
+    padding: 1%;
+
+    border-radius: 5px;
+
+    background-color: rgba(218, 112, 214, 0.685);
+    backdrop-filter: blur(4px);
+
+    color: white;
+}
+
+.add_to_list_button {
+    min-width: 30%;
+    width: fit-content;
+    height: 30px;
+
+    border: none;
+    border-radius: 5px;
+
+    outline: none;
 }
 
 .create_list {
@@ -57,7 +91,8 @@
 
     cursor: pointer;
 
-    width: 30%;
+    min-width: 30%;
+    width: fit-content;
     height: fit-content;
 
     padding: 1%;
@@ -71,12 +106,15 @@
 }
 
 .list_input {
+    outline: none;
+
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
 }
 
 .list_submit_button{
     border: none;
+    outline: none;
 
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -85,4 +123,32 @@
     backdrop-filter: blur(4px);
 
     color: white;
+}
+
+.no_list {
+    margin-bottom: 20%;
+}
+
+.list_recipes_container {
+    display: flex;
+    flex-flow: column nowrap;
+
+    align-items: center;
+    
+    margin-top: 2%;
+    width: 50%;
+    height: 80%;
+
+    overflow: scroll;
+}
+
+.back_list_button {
+    min-width: 30%;
+    width: fit-content;
+    height: 30px;
+
+    border: none;
+    border-radius: 5px;
+
+    outline: none;
 }

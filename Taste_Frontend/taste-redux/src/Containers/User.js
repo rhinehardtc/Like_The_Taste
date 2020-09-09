@@ -11,6 +11,7 @@ export default class User extends React.Component {
     constructor(){
         super()
         this.state = {
+            currentList: null
         }
     }
 
@@ -20,7 +21,14 @@ export default class User extends React.Component {
 
     manageLogin = () => {
         if(this.props.currentUser){
-            return <UserPage stateSetter={this.props.stateSetter} currentUser={this.props.currentUser} />
+            return <UserPage 
+                        stateSetter={this.props.stateSetter} 
+                        currentUser={this.props.currentUser} 
+                        listSetter={this.stateSetter} 
+                        currentList={this.state.currentList} 
+                        getSession={this.props.getSession}
+                        selectedRecipe={this.props.selectedRecipe}
+                    />
         } else if(this.state.signupClick){
             return <SignupForm stateSetter={this.stateSetter} />
         } else if(this.state.loginClick) {

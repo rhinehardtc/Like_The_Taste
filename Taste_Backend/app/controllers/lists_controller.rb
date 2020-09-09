@@ -21,8 +21,15 @@ class ListsController < ApplicationController
         end
     end
 
+    def destroy
+        list = List.find_by(id: params[:id])
+        list.destroy
+
+        render json: List.all, :include => [:recipes, :user]
+    end
+
     private
     def list_params
-        params.require(:list).permit(:title, :user_id)
+        params.require(:list).permit(:id, :title, :user_id)
     end
 end

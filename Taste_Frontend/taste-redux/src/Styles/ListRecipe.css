@@ -1,4 +1,4 @@
-.list_and_button {
+.list_recipe_div {
     display: flex;
     flex-flow: row;
     justify-content: center;
@@ -13,7 +13,7 @@
     background-color: rgb(255, 123, 0);
 }
 
-.list {
+.list_recipe {
     cursor: pointer;
 
     width: 90%;
@@ -26,17 +26,4 @@
     backdrop-filter: blur(4px);
 
     color: white;
-}
-
-.x {
-    float: right;
-    cursor: pointer;
-    height: fit-content;
-    color: white;
-    border: 1px solid rgba(255, 123, 0, 0.856);
-    border-radius: 5px;
-}
-
-.x:hover {
-    border: 1px solid white
 }

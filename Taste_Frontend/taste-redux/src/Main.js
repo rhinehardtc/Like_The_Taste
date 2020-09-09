@@ -123,7 +123,12 @@ export default class Main extends React.Component {
             <div>
                 <Header />
                 {this.showRecipeDetails()}
-                <User currentUser={this.state.currentUser} stateSetter={this.stateSetter} />
+                <User 
+                    currentUser={this.state.currentUser} 
+                    stateSetter={this.stateSetter} 
+                    getSession={this.getSession} 
+                    selectedRecipe={this.state.selectedRecipe}
+                />
             </div>
         )
     }
