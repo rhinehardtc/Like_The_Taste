@@ -14,8 +14,13 @@ class RecipesController < ApplicationController
 
     def search
         i_i = params[:query][:includedIngredients]
+        i_t = params[:query][:includedTags]
+        e_i = params[:query][:excludedIngredients]
 
-        recipes = Recipe.all.includes(:ingredients).select{|recipe| recipe.ingredients.select{|ingredient| i_i.include?(ingredient.id) }.length == i_i.length}
+        i_recipes = Recipe.all.includes(:ingredients).select{|recipe| recipe.ingredients.select{|ingredient| i_i.include?(ingredient.id) }.length == i_i.length} & Recipe.all.includes(:tags).select{|recipe| recipe.tags.select{|tag| i_t.include?(tag.id) }.length == i_t.length}
+        # e_recipes = Recipe.all.includes(:ingredients).select{|recipe| recipe.ingredients.select{|ingredient| e_i.include?(ingredient.id) }.length == e_i.length}
+
+        recipes = i_recipes
 
         render json: recipes, :include => [:ratings, :ingredients, :tags]
     end

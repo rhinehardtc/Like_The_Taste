@@ -71,7 +71,7 @@ export default class Main extends React.Component {
 
     convertTags = (arr) => {
         const allTags = [];
-        arr.map(tag => allTags.push({label: tag.name, value: tag.name}))
+        arr.map(tag => allTags.push({label: tag.name, value: tag.id}))
         this.setState({allTags})
     }
 

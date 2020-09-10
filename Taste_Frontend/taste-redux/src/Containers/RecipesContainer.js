@@ -16,10 +16,17 @@ const RecipesContainer = (props) => {
                 'Content-Type': 'application/json',
                 Accept: 'application/json'
             },
-            body: JSON.stringify({query: {includedIngredients: props.includedIngredients}})
+            body: JSON.stringify({query: {
+                includedIngredients: props.includedIngredients,
+                includedTags: props.includedTags,
+                excludedIngredients: props.excludedIngredients
+            }})
         })
         .then(resp => resp.json())
-        .then(recipes => props.stateSetter({recipes}))
+        .then(recipes => {
+            props.stateSetter({recipes})
+            console.log(props.includedTags, props.includedIngredients)
+        })
     }
 
     return(
